@@ -1,0 +1,17 @@
+/*INSERTS NECESARIOS*/
+
+--Tabla Género
+INSERT INTO Genero VALUES('MASCULINO');
+INSERT INTO Genero VALUES('FEMENINO');
+
+--Tabla Dedos de la mano (Huellas dactilares)
+INSERT INTO DedoMano VALUES ('PULGAR MANO DERECHA'),
+							('ÍNDICE MANO DERECHA'),
+							('MEDIO MANO DERECHA'),
+							('ANULAR MANO DERECHA'),
+							('MEÑIQUE MANO DERECHA'),
+							('PULGAR MANO IZQUIERDA'),
+							('ÍNDICE MANO IZQUIERDA'),
+							('MEDIO MANO IZQUIERDA'),
+							('ANULAR MANO IZQUIERDA'),
+							('MEÑIQUE MANO IZQUIERDA');

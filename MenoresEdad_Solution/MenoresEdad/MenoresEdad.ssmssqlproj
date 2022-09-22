@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<SqlWorkbenchSqlProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="MenoresEdad">
+  <Items>
+    <LogicalFolder Name="Connections" Type="2" Sorted="true">
+      <Items>
+        <ConnectionNode Name="DESKTOP-0VSTESP:SA">
+          <Created>2022-08-08T15:03:39.6261482-06:00</Created>
+          <Type>SQL</Type>
+          <Server>DESKTOP-0VSTESP</Server>
+          <UserName>SA</UserName>
+          <Authentication>SQL</Authentication>
+          <InitialDB />
+          <LoginTimeout>30</LoginTimeout>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
+        </ConnectionNode>
+      </Items>
+    </LogicalFolder>
+    <LogicalFolder Name="Queries" Type="0" Sorted="true">
+      <Items>
+        <FileNode Name="ImportandoDatos.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-0VSTESP:False:SA</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>DESKTOP-0VSTESP</AssociatedConnSrvName>
+          <AssociatedConnUserName>SA</AssociatedConnUserName>
+          <FullPath>ImportandoDatos.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Script_BD.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-0VSTESP:False:SA</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>DESKTOP-0VSTESP</AssociatedConnSrvName>
+          <AssociatedConnUserName>SA</AssociatedConnUserName>
+          <FullPath>Script_BD.sql</FullPath>
+        </FileNode>
+        <FileNode Name="SP_GeneradorCUIMenor.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-0VSTESP:False:SA</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>DESKTOP-0VSTESP</AssociatedConnSrvName>
+          <AssociatedConnUserName>SA</AssociatedConnUserName>
+          <FullPath>SP_GeneradorCUIMenor.sql</FullPath>
+        </FileNode>
+        <FileNode Name="SP_GenerarCUI.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-0VSTESP:False:SA</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>DESKTOP-0VSTESP</AssociatedConnSrvName>
+          <AssociatedConnUserName>SA</AssociatedConnUserName>
+          <FullPath>SP_GenerarCUI.sql</FullPath>
+        </FileNode>
+        <FileNode Name="SP_GenerarCUI2_pruebas.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-0VSTESP:False:SA</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>DESKTOP-0VSTESP</AssociatedConnSrvName>
+          <AssociatedConnUserName>SA</AssociatedConnUserName>
+          <FullPath>SP_GenerarCUI2_pruebas.sql</FullPath>
+        </FileNode>
+        <FileNode Name="SP_InsertarMenorEdad.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-0VSTESP:False:SA</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>DESKTOP-0VSTESP</AssociatedConnSrvName>
+          <AssociatedConnUserName>SA</AssociatedConnUserName>
+          <FullPath>SP_InsertarMenorEdad.sql</FullPath>
+        </FileNode>
+      </Items>
+    </LogicalFolder>
+    <LogicalFolder Name="Miscellaneous" Type="3" Sorted="true">
+      <Items />
+    </LogicalFolder>
+  </Items>
+</SqlWorkbenchSqlProject>

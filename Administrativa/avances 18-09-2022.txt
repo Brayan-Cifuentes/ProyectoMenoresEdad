@@ -1,0 +1,16 @@
+/*Avances hoy 18-09-2022*/
+
+realice la finalizacion de la verificacion 
+- Traida de huellas 
+- Generar la lista para obtener los bitmap de las huellas
+
+pendiente de trabajar 
+
+- cuando no se poseen todas las huellas que el picture box quede vacio
+- luego de terminar de hacer la identificacion de una persona 
+que se limpien todos los picturebox 
+- Recordar colocar el boton de verificacion en el registro para comprobar que el menor a enrolar no ha sido enrolado, si arroja un resultado ya no proceder a realizar el registro del menor debido a que ya existe en la BD.
+
+hoy paso: solo tenia 5 huellas e ingrese mis datos y trono porque no sabia que devolver porque habian nulos
+
+trajo las huellas de la sari y ya despues ingrese las mias y en la parte de abajo quedaron las huellas de la sari y arriba las mias

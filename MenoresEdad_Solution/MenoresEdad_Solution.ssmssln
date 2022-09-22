@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# SQL Server Management Studio Solution File, Format Version 18.00
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "MenoresEdad", "MenoresEdad\MenoresEdad.ssmssqlproj", "{F38C13E1-C2B7-4AF7-8D93-2B7938AE1A07}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Default|Default = Default|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{944D4463-C534-489B-B8B0-65960BFE9FC7}.Default|Default.ActiveCfg = Default
+		{F38C13E1-C2B7-4AF7-8D93-2B7938AE1A07}.Default|Default.ActiveCfg = Default
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4493F275-F6E5-4A68-8C7B-65D7388F8EA4}
+	EndGlobalSection
+EndGlobal

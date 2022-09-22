@@ -1,0 +1,10 @@
+Avances realizados
+
+- validacion para que muestre las huellas que estan almacenadas en la BD
+   * si solo tiene 5, solo esas se muestran y los picturebox restantes se encuentran vacios
+
+- cuando no se poseen todas las huellas que el picture box quede vacio
+- luego de terminar de hacer la identificacion de una persona 
+que se limpien todos los picturebox 
+- se coloco un mensaje cuando la huella es encontrada y cuando esta no es encontrada
+- funciones para limpiar la interfaz cuando no se encuentra la identidad

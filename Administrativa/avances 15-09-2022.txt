@@ -1,0 +1,5 @@
+Cosas hechas 15-09-2022
+-----------------------
+Colocar la captura de las 10 huellas dactilares
+validaciones para realizar el ingreso de datos y que no se diera error 
+en lo de la generacion de bitmap
