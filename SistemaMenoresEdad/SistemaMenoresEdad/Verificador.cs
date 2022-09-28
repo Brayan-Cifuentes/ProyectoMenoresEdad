@@ -187,7 +187,7 @@ namespace SistemaMenoresEdad
 
                             datosIdentidadBiograficos(dato.CuiMenor);
 
-                            limpiarPictureHuellas(); //para evitar que queden picurebox sin limpiar y queden huellas anteriores
+                            limpiarPictureHuellas(); //para evitar que queden picturebox sin limpiar y queden huellas anteriores
 
                             datosBiometricosBitmapHuellas(dato.CuiMenor);
 
@@ -242,7 +242,18 @@ namespace SistemaMenoresEdad
                     txtPaisNac.Text = verificacion.PaisNacimiento.ToString();
                     txtDeptoNac.Text = verificacion.DepartamentoNacimiento.ToString();
                     txtMunicipioNac.Text = verificacion.MunicipioNacimiento.ToString();
-                    txtFoto.Text = verificacion.Foto.ToString();
+
+                    /*-------------------------*/
+                    /*FOTOGRAFIA SE MANDA A TRAER*/
+                    /*------------------------*/
+
+                    //conversion de varbinary a bitmap para que se setee al picturebox
+                    TypeConverter tc = TypeDescriptor.GetConverter(typeof(Bitmap));
+                    Bitmap MyBitmap;
+
+                    //------------> MyBitmap = (Bitmap)tc.ConvertFrom(verificacion.Foto);
+                    //------------> pbFotografiaMenor.Image = new Bitmap(MyBitmap, pbFotografiaMenor.Size);
+                    
                 }));
             }
         }
@@ -306,59 +317,61 @@ namespace SistemaMenoresEdad
 
             int cantidadLista = listaDatosBiometricosBitmap.Count;
 
-            int i = 1;
+            int i = 0;
             /*para verificar que esten las huellas, Ejemplo: si solo tiene 5, solo esas 5 huellas mostrará*/
-            while (i<=cantidadLista)
+            while (i<cantidadLista)
             {
-                switch (i)
+                int tagPosicionDedoPictureBox = listaDatosBiometricosBitmap[i].IdDedoMano;  
+
+                switch (tagPosicionDedoPictureBox)  //antes era i
                 {
                     case 1:
-                        MyBitmap = (Bitmap)tc.ConvertFrom(listaDatosBiometricosBitmap[0].BitmapDedoHuella);
+                        MyBitmap = (Bitmap)tc.ConvertFrom(listaDatosBiometricosBitmap[i].BitmapDedoHuella);
                         pictureBoxDedo1.Image = new Bitmap(MyBitmap, pictureBoxDedo1.Size);
                         i++;
                         break;
                     case 2:
-                        MyBitmap = (Bitmap)tc.ConvertFrom(listaDatosBiometricosBitmap[1].BitmapDedoHuella);
+                        MyBitmap = (Bitmap)tc.ConvertFrom(listaDatosBiometricosBitmap[i].BitmapDedoHuella);
                         pictureBoxDedo2.Image = new Bitmap(MyBitmap, pictureBoxDedo2.Size);
                         i++;
                         break;
                     case 3:
-                        MyBitmap = (Bitmap)tc.ConvertFrom(listaDatosBiometricosBitmap[2].BitmapDedoHuella);
+                        MyBitmap = (Bitmap)tc.ConvertFrom(listaDatosBiometricosBitmap[i].BitmapDedoHuella);
                         pictureBoxDedo3.Image = new Bitmap(MyBitmap, pictureBoxDedo3.Size);
                         i++;
                         break;
                     case 4:
-                        MyBitmap = (Bitmap)tc.ConvertFrom(listaDatosBiometricosBitmap[3].BitmapDedoHuella);
+                        MyBitmap = (Bitmap)tc.ConvertFrom(listaDatosBiometricosBitmap[i].BitmapDedoHuella);
                         pictureBoxDedo4.Image = new Bitmap(MyBitmap, pictureBoxDedo4.Size);
                         i++;
                         break;
                     case 5:
-                        MyBitmap = (Bitmap)tc.ConvertFrom(listaDatosBiometricosBitmap[4].BitmapDedoHuella);
+                        MyBitmap = (Bitmap)tc.ConvertFrom(listaDatosBiometricosBitmap[i].BitmapDedoHuella);
                         pictureBoxDedo5.Image = new Bitmap(MyBitmap, pictureBoxDedo5.Size);
                         i++;
                         break;
                     case 6:
-                        MyBitmap = (Bitmap)tc.ConvertFrom(listaDatosBiometricosBitmap[5].BitmapDedoHuella);
+                        MyBitmap = (Bitmap)tc.ConvertFrom(listaDatosBiometricosBitmap[i].BitmapDedoHuella);
                         pictureBoxDedo6.Image = new Bitmap(MyBitmap, pictureBoxDedo6.Size);
                         i++;
                         break;
                     case 7:
-                        MyBitmap = (Bitmap)tc.ConvertFrom(listaDatosBiometricosBitmap[6].BitmapDedoHuella);
+                        MyBitmap = (Bitmap)tc.ConvertFrom(listaDatosBiometricosBitmap[i].BitmapDedoHuella);
                         pictureBoxDedo7.Image = new Bitmap(MyBitmap, pictureBoxDedo7.Size);
                         i++;
                         break;
                     case 8:
-                        MyBitmap = (Bitmap)tc.ConvertFrom(listaDatosBiometricosBitmap[7].BitmapDedoHuella);
+                        MyBitmap = (Bitmap)tc.ConvertFrom(listaDatosBiometricosBitmap[i].BitmapDedoHuella);
                         pictureBoxDedo8.Image = new Bitmap(MyBitmap, pictureBoxDedo8.Size);
                         i++;
                         break;
                     case 9:
-                        MyBitmap = (Bitmap)tc.ConvertFrom(listaDatosBiometricosBitmap[8].BitmapDedoHuella);
+                        MyBitmap = (Bitmap)tc.ConvertFrom(listaDatosBiometricosBitmap[i].BitmapDedoHuella);
                         pictureBoxDedo9.Image = new Bitmap(MyBitmap, pictureBoxDedo9.Size);
                         i++;
                         break;
                     case 10:
-                        MyBitmap = (Bitmap)tc.ConvertFrom(listaDatosBiometricosBitmap[9].BitmapDedoHuella);
+                        MyBitmap = (Bitmap)tc.ConvertFrom(listaDatosBiometricosBitmap[i].BitmapDedoHuella);
                         pictureBoxDedo10.Image = new Bitmap(MyBitmap, pictureBoxDedo10.Size);
                         i++;
                         break;

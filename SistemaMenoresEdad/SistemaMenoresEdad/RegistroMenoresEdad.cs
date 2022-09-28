@@ -25,6 +25,8 @@ namespace SistemaMenoresEdad
         byte[] Bitmaphuella9 = null;
         byte[] Bitmaphuella10 = null;
 
+        byte[] fotografiaMenor = null;
+
         public RegistroMenoresEdad()
         {
             InitializeComponent();
@@ -133,7 +135,6 @@ namespace SistemaMenoresEdad
         /*Convierte de imagen a arreglo de Bytes*/
         public static byte[] ImageToByteArray(Image imagen)
         {
-            
             using (var stream = new MemoryStream())
             {
                 imagen.Save(stream, System.Drawing.Imaging.ImageFormat.Png);
@@ -228,21 +229,17 @@ namespace SistemaMenoresEdad
         //prueba de lectura de huella y colocarla a un picture 
 
 
-
-       
-
         private void pictureBoxDedo1_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
-        
 
         private void btnPruebaTraerDatos_Click(object sender, EventArgs e)
         {
-            Conexion conexion = new Conexion();
-            conexion.retornarBitmapaHuella(1, pictureBoxDedo1);
-            conexion.retornarBitmapaHuella(2, pictureBoxDedo2);
+            //Conexion conexion = new Conexion();
+            //conexion.retornarBitmapaHuella(1, pictureBoxDedo1);
+            //conexion.retornarBitmapaHuella(2, pictureBoxDedo2);
             //conexion.retornarBitmapaHuella(3, pictureBoxDedo8);
         }
 
@@ -346,17 +343,31 @@ namespace SistemaMenoresEdad
 
             //campos vacios que no inserte
             if (txtPrimerNombre.TextLength == 0 || txtSegundoNombre.TextLength == 0 ||
-                txtPrimerApellido.TextLength == 0 || txtSegundoApellido.TextLength == 0)
+                txtPrimerApellido.TextLength == 0 || txtSegundoApellido.TextLength == 0 )
             {
                 MessageBox.Show("Debe llenar todos los campos para realizar \nel Registro del Menor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                RegistroMenorEdad registrarMenor = new RegistroMenorEdad();
-                registrarMenor.insertarDatosBiograficos(txtCuiMenor, txtPrimerNombre, txtSegundoNombre, txtTercerMasNombres, txtPrimerApellido, txtSegundoApellido, txtFechaNac, txtGenero, txtPaisNac, txtDeptoNac, txtMunicipioNac, "prueba de foto");
+                if(fotografiaMenor != null)
+                {
+                    RegistroMenorEdad registrarMenor = new RegistroMenorEdad();
+                    registrarMenor.insertarDatosBiograficos(txtCuiMenor, txtPrimerNombre, txtSegundoNombre, txtTercerMasNombres, txtPrimerApellido, txtSegundoApellido, txtFechaNac, txtGenero, txtPaisNac, txtDeptoNac, txtMunicipioNac, fotografiaMenor);
 
-                bloquearCampos();
-                RefreshTabla(dgvDatosBiograficos);
+                    bloquearCampos();
+                    RefreshTabla(dgvDatosBiograficos);
+
+                    fotografiaMenor = null;
+                    
+                }
+                else
+                {
+                    MessageBox.Show("Debe seleccionar la fotografía del Menor\npara completar el registro", 
+                        "Error Fotografía del Menor", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+
+                
             }
         }
 
@@ -440,6 +451,36 @@ namespace SistemaMenoresEdad
         private void button26_Click(object sender, EventArgs e)
         {
             registarHuellaMenor(txtCuiMenor, pictureBoxDedo10, Bitmaphuella10);
+        }
+
+        private void btnSeleccionarFotoMenor_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.InitialDirectory = "C:\\";
+            openFileDialog1.Filter = "Archivos jpg (*.jpg)|*.jpg| Archivos png (*.png)|*.png";
+            openFileDialog1.FilterIndex = 1;
+            openFileDialog1.RestoreDirectory = true;  //all abrir varias veces que nos deje en el mismo directorio
+
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                //colocar la imagen en el picturebox 
+                pbFotoMenor.ImageLocation = openFileDialog1.FileName;
+
+                //realizando la conversion de la foto
+                Stream stream = openFileDialog1.OpenFile(); //a lo que abrio el directorio
+
+                //convirtiendo a matriz de bytes
+                using (MemoryStream memoryStream = new MemoryStream())
+                {
+                    stream.CopyTo(memoryStream);
+                    fotografiaMenor = memoryStream.ToArray();
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("No se selecciono ninguna imagen", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
     }
 }

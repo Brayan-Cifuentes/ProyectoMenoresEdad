@@ -33,9 +33,8 @@
             this.button31 = new System.Windows.Forms.Button();
             this.button30 = new System.Windows.Forms.Button();
             this.button29 = new System.Windows.Forms.Button();
-            this.button28 = new System.Windows.Forms.Button();
             this.btnGuardarDatosBiograficos = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbFotoMenor = new System.Windows.Forms.PictureBox();
             this.txtMunicipioNac = new System.Windows.Forms.TextBox();
             this.cbxMunicipioNac = new System.Windows.Forms.ComboBox();
             this.txtDeptoNac = new System.Windows.Forms.TextBox();
@@ -128,8 +127,10 @@
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnPruebaTraerDatos = new System.Windows.Forms.Button();
+            this.btnSeleccionarFotoMenor = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFotoMenor)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDedo10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDedo9)).BeginInit();
@@ -150,12 +151,12 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.btnSeleccionarFotoMenor);
             this.groupBox1.Controls.Add(this.button31);
             this.groupBox1.Controls.Add(this.button30);
             this.groupBox1.Controls.Add(this.button29);
-            this.groupBox1.Controls.Add(this.button28);
             this.groupBox1.Controls.Add(this.btnGuardarDatosBiograficos);
-            this.groupBox1.Controls.Add(this.pictureBox1);
+            this.groupBox1.Controls.Add(this.pbFotoMenor);
             this.groupBox1.Controls.Add(this.txtMunicipioNac);
             this.groupBox1.Controls.Add(this.cbxMunicipioNac);
             this.groupBox1.Controls.Add(this.txtDeptoNac);
@@ -193,43 +194,34 @@
             // 
             // button31
             // 
-            this.button31.Location = new System.Drawing.Point(26, 327);
+            this.button31.Location = new System.Drawing.Point(26, 325);
             this.button31.Name = "button31";
-            this.button31.Size = new System.Drawing.Size(158, 23);
+            this.button31.Size = new System.Drawing.Size(173, 23);
             this.button31.TabIndex = 39;
             this.button31.Text = "Dar de Baja Registro";
             this.button31.UseVisualStyleBackColor = true;
             // 
             // button30
             // 
-            this.button30.Location = new System.Drawing.Point(26, 298);
+            this.button30.Location = new System.Drawing.Point(26, 296);
             this.button30.Name = "button30";
-            this.button30.Size = new System.Drawing.Size(158, 23);
+            this.button30.Size = new System.Drawing.Size(173, 23);
             this.button30.TabIndex = 38;
             this.button30.Text = "Modificar Registro";
             this.button30.UseVisualStyleBackColor = true;
             // 
             // button29
             // 
-            this.button29.Location = new System.Drawing.Point(26, 269);
+            this.button29.Location = new System.Drawing.Point(26, 267);
             this.button29.Name = "button29";
-            this.button29.Size = new System.Drawing.Size(158, 23);
+            this.button29.Size = new System.Drawing.Size(173, 23);
             this.button29.TabIndex = 37;
             this.button29.Text = "Nuevo Registro";
             this.button29.UseVisualStyleBackColor = true;
             // 
-            // button28
-            // 
-            this.button28.Location = new System.Drawing.Point(26, 202);
-            this.button28.Name = "button28";
-            this.button28.Size = new System.Drawing.Size(158, 23);
-            this.button28.TabIndex = 36;
-            this.button28.Text = "Seleccionar Fotografía";
-            this.button28.UseVisualStyleBackColor = true;
-            // 
             // btnGuardarDatosBiograficos
             // 
-            this.btnGuardarDatosBiograficos.Location = new System.Drawing.Point(677, 318);
+            this.btnGuardarDatosBiograficos.Location = new System.Drawing.Point(696, 318);
             this.btnGuardarDatosBiograficos.Name = "btnGuardarDatosBiograficos";
             this.btnGuardarDatosBiograficos.Size = new System.Drawing.Size(75, 23);
             this.btnGuardarDatosBiograficos.TabIndex = 35;
@@ -237,18 +229,19 @@
             this.btnGuardarDatosBiograficos.UseVisualStyleBackColor = true;
             this.btnGuardarDatosBiograficos.Click += new System.EventHandler(this.btnGuardarDatosBiograficos_Click);
             // 
-            // pictureBox1
+            // pbFotoMenor
             // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(26, 26);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(158, 170);
-            this.pictureBox1.TabIndex = 34;
-            this.pictureBox1.TabStop = false;
+            this.pbFotoMenor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbFotoMenor.Location = new System.Drawing.Point(26, 26);
+            this.pbFotoMenor.Name = "pbFotoMenor";
+            this.pbFotoMenor.Size = new System.Drawing.Size(173, 170);
+            this.pbFotoMenor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbFotoMenor.TabIndex = 34;
+            this.pbFotoMenor.TabStop = false;
             // 
             // txtMunicipioNac
             // 
-            this.txtMunicipioNac.Location = new System.Drawing.Point(588, 308);
+            this.txtMunicipioNac.Location = new System.Drawing.Point(607, 308);
             this.txtMunicipioNac.Name = "txtMunicipioNac";
             this.txtMunicipioNac.Size = new System.Drawing.Size(46, 20);
             this.txtMunicipioNac.TabIndex = 33;
@@ -257,7 +250,7 @@
             // 
             this.cbxMunicipioNac.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxMunicipioNac.FormattingEnabled = true;
-            this.cbxMunicipioNac.Location = new System.Drawing.Point(382, 308);
+            this.cbxMunicipioNac.Location = new System.Drawing.Point(401, 308);
             this.cbxMunicipioNac.Name = "cbxMunicipioNac";
             this.cbxMunicipioNac.Size = new System.Drawing.Size(188, 21);
             this.cbxMunicipioNac.TabIndex = 32;
@@ -265,7 +258,7 @@
             // 
             // txtDeptoNac
             // 
-            this.txtDeptoNac.Location = new System.Drawing.Point(588, 269);
+            this.txtDeptoNac.Location = new System.Drawing.Point(607, 269);
             this.txtDeptoNac.Name = "txtDeptoNac";
             this.txtDeptoNac.Size = new System.Drawing.Size(46, 20);
             this.txtDeptoNac.TabIndex = 31;
@@ -274,7 +267,7 @@
             // 
             this.cbxDeptoNac.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxDeptoNac.FormattingEnabled = true;
-            this.cbxDeptoNac.Location = new System.Drawing.Point(382, 269);
+            this.cbxDeptoNac.Location = new System.Drawing.Point(401, 269);
             this.cbxDeptoNac.Name = "cbxDeptoNac";
             this.cbxDeptoNac.Size = new System.Drawing.Size(188, 21);
             this.cbxDeptoNac.TabIndex = 30;
@@ -282,7 +275,7 @@
             // 
             // txtPaisNac
             // 
-            this.txtPaisNac.Location = new System.Drawing.Point(713, 227);
+            this.txtPaisNac.Location = new System.Drawing.Point(726, 226);
             this.txtPaisNac.Name = "txtPaisNac";
             this.txtPaisNac.Size = new System.Drawing.Size(46, 20);
             this.txtPaisNac.TabIndex = 29;
@@ -291,7 +284,7 @@
             // 
             this.cbxPaisNac.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxPaisNac.FormattingEnabled = true;
-            this.cbxPaisNac.Location = new System.Drawing.Point(577, 226);
+            this.cbxPaisNac.Location = new System.Drawing.Point(596, 226);
             this.cbxPaisNac.Name = "cbxPaisNac";
             this.cbxPaisNac.Size = new System.Drawing.Size(121, 21);
             this.cbxPaisNac.TabIndex = 28;
@@ -299,7 +292,7 @@
             // 
             // txtGenero
             // 
-            this.txtGenero.Location = new System.Drawing.Point(417, 226);
+            this.txtGenero.Location = new System.Drawing.Point(436, 226);
             this.txtGenero.Name = "txtGenero";
             this.txtGenero.Size = new System.Drawing.Size(36, 20);
             this.txtGenero.TabIndex = 27;
@@ -308,7 +301,7 @@
             // 
             this.cbxGenero.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxGenero.FormattingEnabled = true;
-            this.cbxGenero.Location = new System.Drawing.Point(290, 226);
+            this.cbxGenero.Location = new System.Drawing.Point(309, 226);
             this.cbxGenero.Name = "cbxGenero";
             this.cbxGenero.Size = new System.Drawing.Size(121, 21);
             this.cbxGenero.TabIndex = 26;
@@ -316,7 +309,7 @@
             // 
             // txtFechaNac
             // 
-            this.txtFechaNac.Location = new System.Drawing.Point(459, 183);
+            this.txtFechaNac.Location = new System.Drawing.Point(478, 183);
             this.txtFechaNac.Name = "txtFechaNac";
             this.txtFechaNac.Size = new System.Drawing.Size(132, 20);
             this.txtFechaNac.TabIndex = 25;
@@ -325,7 +318,7 @@
             // 
             this.dtpFechaNac.CustomFormat = "";
             this.dtpFechaNac.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaNac.Location = new System.Drawing.Point(329, 183);
+            this.dtpFechaNac.Location = new System.Drawing.Point(348, 183);
             this.dtpFechaNac.MinDate = new System.DateTime(2005, 1, 1, 0, 0, 0, 0);
             this.dtpFechaNac.Name = "dtpFechaNac";
             this.dtpFechaNac.Size = new System.Drawing.Size(124, 20);
@@ -334,7 +327,7 @@
             // 
             // txtSegundoApellido
             // 
-            this.txtSegundoApellido.Location = new System.Drawing.Point(577, 140);
+            this.txtSegundoApellido.Location = new System.Drawing.Point(596, 140);
             this.txtSegundoApellido.Name = "txtSegundoApellido";
             this.txtSegundoApellido.Size = new System.Drawing.Size(142, 20);
             this.txtSegundoApellido.TabIndex = 23;
@@ -342,7 +335,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(478, 142);
+            this.label12.Location = new System.Drawing.Point(497, 142);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(93, 13);
             this.label12.TabIndex = 22;
@@ -350,7 +343,7 @@
             // 
             // txtPrimerApellido
             // 
-            this.txtPrimerApellido.Location = new System.Drawing.Point(311, 140);
+            this.txtPrimerApellido.Location = new System.Drawing.Point(330, 140);
             this.txtPrimerApellido.Name = "txtPrimerApellido";
             this.txtPrimerApellido.Size = new System.Drawing.Size(142, 20);
             this.txtPrimerApellido.TabIndex = 21;
@@ -358,7 +351,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(226, 143);
+            this.label11.Location = new System.Drawing.Point(245, 143);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(79, 13);
             this.label11.TabIndex = 20;
@@ -367,7 +360,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(226, 308);
+            this.label10.Location = new System.Drawing.Point(245, 308);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(111, 13);
             this.label10.TabIndex = 17;
@@ -376,7 +369,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(226, 269);
+            this.label9.Location = new System.Drawing.Point(245, 269);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(148, 13);
             this.label9.TabIndex = 15;
@@ -385,7 +378,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(482, 229);
+            this.label8.Location = new System.Drawing.Point(501, 229);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(88, 13);
             this.label8.TabIndex = 13;
@@ -394,7 +387,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(226, 229);
+            this.label7.Location = new System.Drawing.Point(245, 229);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(45, 13);
             this.label7.TabIndex = 11;
@@ -403,7 +396,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(226, 183);
+            this.label5.Location = new System.Drawing.Point(245, 183);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(96, 13);
             this.label5.TabIndex = 9;
@@ -412,7 +405,7 @@
             // 
             // txtTercerMasNombres
             // 
-            this.txtTercerMasNombres.Location = new System.Drawing.Point(348, 103);
+            this.txtTercerMasNombres.Location = new System.Drawing.Point(367, 103);
             this.txtTercerMasNombres.Name = "txtTercerMasNombres";
             this.txtTercerMasNombres.Size = new System.Drawing.Size(371, 20);
             this.txtTercerMasNombres.TabIndex = 8;
@@ -420,7 +413,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(226, 103);
+            this.label6.Location = new System.Drawing.Point(245, 103);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(116, 13);
             this.label6.TabIndex = 7;
@@ -428,7 +421,7 @@
             // 
             // txtSegundoNombre
             // 
-            this.txtSegundoNombre.Location = new System.Drawing.Point(577, 64);
+            this.txtSegundoNombre.Location = new System.Drawing.Point(596, 64);
             this.txtSegundoNombre.Name = "txtSegundoNombre";
             this.txtSegundoNombre.Size = new System.Drawing.Size(142, 20);
             this.txtSegundoNombre.TabIndex = 6;
@@ -436,7 +429,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(478, 67);
+            this.label4.Location = new System.Drawing.Point(497, 67);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(93, 13);
             this.label4.TabIndex = 5;
@@ -444,7 +437,7 @@
             // 
             // txtPrimerNombre
             // 
-            this.txtPrimerNombre.Location = new System.Drawing.Point(311, 63);
+            this.txtPrimerNombre.Location = new System.Drawing.Point(330, 63);
             this.txtPrimerNombre.Name = "txtPrimerNombre";
             this.txtPrimerNombre.Size = new System.Drawing.Size(142, 20);
             this.txtPrimerNombre.TabIndex = 4;
@@ -452,7 +445,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(226, 67);
+            this.label3.Location = new System.Drawing.Point(245, 67);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(79, 13);
             this.label3.TabIndex = 3;
@@ -462,7 +455,7 @@
             // 
             this.txtCuiMenor.Enabled = false;
             this.txtCuiMenor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.818182F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCuiMenor.Location = new System.Drawing.Point(269, 26);
+            this.txtCuiMenor.Location = new System.Drawing.Point(288, 26);
             this.txtCuiMenor.Name = "txtCuiMenor";
             this.txtCuiMenor.Size = new System.Drawing.Size(142, 24);
             this.txtCuiMenor.TabIndex = 2;
@@ -471,7 +464,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(226, 32);
+            this.label2.Location = new System.Drawing.Point(245, 32);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(28, 13);
             this.label2.TabIndex = 1;
@@ -1155,6 +1148,20 @@
             this.btnPruebaTraerDatos.UseVisualStyleBackColor = true;
             this.btnPruebaTraerDatos.Click += new System.EventHandler(this.btnPruebaTraerDatos_Click);
             // 
+            // btnSeleccionarFotoMenor
+            // 
+            this.btnSeleccionarFotoMenor.Location = new System.Drawing.Point(26, 202);
+            this.btnSeleccionarFotoMenor.Name = "btnSeleccionarFotoMenor";
+            this.btnSeleccionarFotoMenor.Size = new System.Drawing.Size(173, 23);
+            this.btnSeleccionarFotoMenor.TabIndex = 40;
+            this.btnSeleccionarFotoMenor.Text = "Seleccionar Fotografía";
+            this.btnSeleccionarFotoMenor.UseVisualStyleBackColor = true;
+            this.btnSeleccionarFotoMenor.Click += new System.EventHandler(this.btnSeleccionarFotoMenor_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // RegistroMenoresEdad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1175,7 +1182,7 @@
             this.Load += new System.EventHandler(this.RegistroMenoresEdad_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFotoMenor)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDedo10)).EndInit();
@@ -1230,7 +1237,7 @@
         private System.Windows.Forms.TextBox txtPrimerApellido;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pbFotoMenor;
         private System.Windows.Forms.Button btnAsignarPadres;
         private System.Windows.Forms.Button btnRegistrarPadres;
         private System.Windows.Forms.GroupBox groupBox4;
@@ -1295,8 +1302,9 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button button30;
         private System.Windows.Forms.Button button29;
-        private System.Windows.Forms.Button button28;
         private System.Windows.Forms.Button button31;
+        private System.Windows.Forms.Button btnSeleccionarFotoMenor;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
 

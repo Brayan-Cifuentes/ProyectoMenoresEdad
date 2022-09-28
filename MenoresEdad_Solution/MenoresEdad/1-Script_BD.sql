@@ -56,7 +56,7 @@ CREATE TABLE MenorEdad(
 	idDepartamentoNac int NOT NULL, -- Este se buscara por medio del municipio con la llave del departamento al que pertenece
 	idMunicipioNac int NOT NULL,
 	--idPlantilla int NOT NULL,
-	fotografia varchar(50) NOT NULL,
+	fotografia varbinary(MAX) NOT NULL,
 	estatus char(1) NOT NULL,
 
 	FOREIGN KEY (idGenero) REFERENCES Genero (idGenero),

@@ -35,7 +35,7 @@ namespace SistemaMenoresEdad.CapaModelo
         private string paisNacimiento;
         private string departamentoNacimiento;
         private string municipioNacimiento;
-        private string foto;
+        private byte[] foto;
 
         public long CuiMenor { get => cuiMenor; set => cuiMenor = value; }
         public string PrimerNombre { get => primerNombre; set => primerNombre = value; }
@@ -48,21 +48,23 @@ namespace SistemaMenoresEdad.CapaModelo
         public string PaisNacimiento { get => paisNacimiento; set => paisNacimiento = value; }
         public string DepartamentoNacimiento { get => departamentoNacimiento; set => departamentoNacimiento = value; }
         public string MunicipioNacimiento { get => municipioNacimiento; set => municipioNacimiento = value; }
-        public string Foto { get => foto; set => foto = value; }
+        public byte[] Foto { get => foto; set => foto = value; }
     }
 
     public class bitmapHuellaMenor
     {
         byte[] bitmapDedoHuella;
+        int idDedoMano;
 
         public byte[] BitmapDedoHuella { get => bitmapDedoHuella; set => bitmapDedoHuella = value; }
+        public int IdDedoMano { get => idDedoMano; set => idDedoMano = value; }
     }
 
     public class IdentificacionMenorEdad
     {
 
         /*----------------------------*/
-        /*LISTA PARA DATOS BIOMETRICOS -> Realizar la compracion de la huella de la BD con la ingresada por el lector*/
+        /*LISTA PARA DATOS BIOMETRICOS -> Realizar la comparacion de la huella de la BD con la ingresada por el lector*/
         /*----------------------------*/
         public List<DatosBiometricosMenor> DatosBiometricos()
         {
@@ -148,7 +150,7 @@ namespace SistemaMenoresEdad.CapaModelo
                         datos.PaisNacimiento = (string)reader["Pais"];
                         datos.DepartamentoNacimiento = (string)reader["Departamento"];
                         datos.MunicipioNacimiento = (string)reader["Municipio"];
-                        datos.Foto = (string)reader["fotografia"];
+                        datos.Foto = (byte[])reader["fotografia"];
 
 
                         datosIdentidad.Add(datos);
@@ -172,7 +174,7 @@ namespace SistemaMenoresEdad.CapaModelo
         public List<bitmapHuellaMenor> bitmapHuellasMenorPorCUI(long CUIMenor)
         {
             List<bitmapHuellaMenor> bitmapHuella = new List<bitmapHuellaMenor>();
-            string sql = "select bitmapHuella from HuellaDactilar where CUIMenor = @CUIMenor order by idDedoMano asc";
+            string sql = "select bitmapHuella, idDedoMano from HuellaDactilar where CUIMenor = @CUIMenor order by idDedoMano asc";
 
             using (SqlConnection connection = new SqlConnection(Conexion.conexionString))
             {
@@ -189,6 +191,7 @@ namespace SistemaMenoresEdad.CapaModelo
                     {
                         bitmapHuellaMenor datos = new bitmapHuellaMenor();
                         datos.BitmapDedoHuella = (byte[])reader["bitmapHuella"];
+                        datos.IdDedoMano = (int)reader["idDedoMano"];
 
                         bitmapHuella.Add(datos);
                     }

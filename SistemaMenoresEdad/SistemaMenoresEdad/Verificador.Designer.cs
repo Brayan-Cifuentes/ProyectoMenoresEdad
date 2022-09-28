@@ -86,6 +86,7 @@ namespace SistemaMenoresEdad
             this.label14 = new System.Windows.Forms.Label();
             this.txtCuiMenor = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
+            this.pbFotografiaMenor = new System.Windows.Forms.PictureBox();
             this.pnlNotificaciones.SuspendLayout();
             this.pnlPrincipal.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -100,6 +101,7 @@ namespace SistemaMenoresEdad
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDedo2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDedo1)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFotografiaMenor)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlNotificaciones
@@ -202,6 +204,7 @@ namespace SistemaMenoresEdad
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlPrincipal.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlPrincipal.Controls.Add(this.pbFotografiaMenor);
             this.pnlPrincipal.Controls.Add(this.groupBox2);
             this.pnlPrincipal.Controls.Add(this.groupBox1);
             this.pnlPrincipal.Location = new System.Drawing.Point(0, 102);
@@ -671,6 +674,15 @@ namespace SistemaMenoresEdad
             this.label15.TabIndex = 36;
             this.label15.Text = "CUI:";
             // 
+            // pbFotografiaMenor
+            // 
+            this.pbFotografiaMenor.Location = new System.Drawing.Point(142, 443);
+            this.pbFotografiaMenor.Name = "pbFotografiaMenor";
+            this.pbFotografiaMenor.Size = new System.Drawing.Size(193, 170);
+            this.pbFotografiaMenor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbFotografiaMenor.TabIndex = 64;
+            this.pbFotografiaMenor.TabStop = false;
+            // 
             // Verificador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -700,6 +712,7 @@ namespace SistemaMenoresEdad
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDedo1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFotografiaMenor)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -763,5 +776,6 @@ namespace SistemaMenoresEdad
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.TextBox txtFoto;
+        private System.Windows.Forms.PictureBox pbFotografiaMenor;
     }
 }

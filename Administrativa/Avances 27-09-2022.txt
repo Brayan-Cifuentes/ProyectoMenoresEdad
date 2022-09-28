@@ -1,0 +1,16 @@
+avances 27-09-2022
+----------------------
+
+- se agrego la fotografía a la forma de registro
+- se almaceno a BD la fotografia 
+- Se realizo la conversion de la fotografia (varbinary a bitmap para que traiga el picturebox)
+- cambio de tipo de dato a fotografia (Cambio a varbinary)
+- se arreglo la carga de huellas en verificacion cuando las huellas son 
+salteadas, se arreglo la parte de verificacion debido a que sino se agregaba el codigo del dedo 
+colocaba las huellas en otro orden.
+
+
+Pendiente de trabajar
+* arreglar la tabla, que solo liste los que estan activos, no todos
+* Modificacion y eliminacion (Fotografia, tabla y demas en registro menores)
+* arreglar forma de verificacion 

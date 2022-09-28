@@ -13,7 +13,7 @@ ALTER PROCEDURE SP_InsertarMenorEdad(
 							@idPaisNacimiento int,
 							@idDepartamentoNac int,
 							@idMunicipioNac int,
-							@fotografia varchar(50),
+							@fotografia varbinary(MAX),
 							@CUIGenerado BIGINT OUTPUT)
 AS
 BEGIN

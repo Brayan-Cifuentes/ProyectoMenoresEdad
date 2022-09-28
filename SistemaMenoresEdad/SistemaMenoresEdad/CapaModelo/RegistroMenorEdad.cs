@@ -204,7 +204,7 @@ namespace SistemaMenoresEdad.CapaModelo
                         datos.IdPaisNacimiento = (int)reader["idPaisNacimiento"];
                         datos.IdDepartamentoNacimiento = (int)reader["idDepartamentoNac"];
                         datos.IdMunicipioNacimiento = (int)reader["idMunicipioNac"];
-                        datos.Foto = (string)reader["fotografia"];
+                        //datos.Foto = (string)reader["fotografia"];
                         datos.Estado = char.Parse((string)reader["estatus"]);
 
                         datosBiograficos.Add(datos);
@@ -333,7 +333,7 @@ namespace SistemaMenoresEdad.CapaModelo
         /*--------------------------------*/
         public void insertarDatosBiograficos(TextBox CUI,TextBox primerNombre, TextBox segundoNombre, TextBox tercerYmasNombres, TextBox primerApellido,
             TextBox segundoApellido, TextBox fechaNacimiento, TextBox idGenero, TextBox idPaisNacimiento, TextBox idDepartamentoNacimiento,
-            TextBox idMunicipioNacimiento, string fotografia)
+            TextBox idMunicipioNacimiento, byte[] fotografia)
         {
             //VariablesGlobales variables = new VariablesGlobales();
             string nombreSP = "SP_InsertarMenorEdad";
