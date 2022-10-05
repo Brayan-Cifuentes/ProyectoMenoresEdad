@@ -140,7 +140,7 @@ namespace SistemaMenoresEdad
             this.txtFAR.Enabled = false;
             this.txtFAR.Location = new System.Drawing.Point(920, 39);
             this.txtFAR.Name = "txtFAR";
-            this.txtFAR.Size = new System.Drawing.Size(114, 20);
+            this.txtFAR.Size = new System.Drawing.Size(231, 20);
             this.txtFAR.TabIndex = 9;
             // 
             // label4
@@ -685,7 +685,7 @@ namespace SistemaMenoresEdad
             this.gbFotoMenor.Size = new System.Drawing.Size(331, 219);
             this.gbFotoMenor.TabIndex = 65;
             this.gbFotoMenor.TabStop = false;
-            this.gbFotoMenor.Text = "FOTOGRAFÍA MENOR";
+            this.gbFotoMenor.Text = "FOTOGRAFÍA DEL MENOR";
             // 
             // Verificador
             // 

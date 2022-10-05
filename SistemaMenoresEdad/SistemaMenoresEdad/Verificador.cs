@@ -53,6 +53,10 @@ namespace SistemaMenoresEdad
             }
 
             verificadorHuella = new DPFP.Verification.Verification();
+
+            /*Tasa de verificacion*/
+            //False Accept Rate(FAR)
+            //actualizarEstado(0); //Por defecto a cero
         }
 
 
@@ -177,11 +181,13 @@ namespace SistemaMenoresEdad
                         plantillaHuellaDB = new DPFP.Template(stream); //a tipo template para realizar la comparacion
 
                         verificadorHuella.Verify(caracteristicas, plantillaHuellaDB, ref result); //se realiza la verificacion para determinar si coincide
+                        actualizarEstado(result.FARAchieved); //despliega el resultado de la verificacion                        
                         //variable result tiene el resultado de la comparacion
 
                         if (result.Verified) //si da verified quiere decir que hizo match la huella ingresada con la de la BD
                         {
                             estadoIdentificacion("HUELLA ENCONTRADA EN LA BD");
+                            
                             //desplegar los datos
                             //MessageBox.Show("HUELLA ENCONTRADA \nCUI:" + dato.CuiMenor + " ID_Dedo:" + dato.IdDedoMano);
 
@@ -378,7 +384,7 @@ namespace SistemaMenoresEdad
             // Mostrar el valor de "False accept rate"
             this.Invoke(new Function(delegate ()
             {
-                txtFAR.Text = (String.Format("False Accept Rate (FAR) = {0}", FAR));
+                setResultadoVerificacion(FAR.ToString());
             }));
         }
         
@@ -451,6 +457,15 @@ namespace SistemaMenoresEdad
             this.Invoke(new Function(delegate ()
             {
                 txtStatusLector.AppendText(mensaje + "\r\n");
+            }));
+
+        }
+
+        protected void setResultadoVerificacion(string mensaje)
+        {
+            this.Invoke(new Function(delegate ()
+            {
+                txtFAR.Text = mensaje;
             }));
 
         }
