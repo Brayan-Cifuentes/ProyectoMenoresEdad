@@ -39,7 +39,8 @@ namespace SistemaMenoresEdad
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pnlPrincipal = new System.Windows.Forms.Panel();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.pbFotografiaMenor = new System.Windows.Forms.PictureBox();
+            this.gbHuellasDactilares = new System.Windows.Forms.GroupBox();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
@@ -62,8 +63,7 @@ namespace SistemaMenoresEdad
             this.pictureBoxDedo1 = new System.Windows.Forms.PictureBox();
             this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtFoto = new System.Windows.Forms.TextBox();
+            this.gbDatosBiograficos = new System.Windows.Forms.GroupBox();
             this.txtMunicipioNac = new System.Windows.Forms.TextBox();
             this.txtDeptoNac = new System.Windows.Forms.TextBox();
             this.txtPaisNac = new System.Windows.Forms.TextBox();
@@ -86,10 +86,11 @@ namespace SistemaMenoresEdad
             this.label14 = new System.Windows.Forms.Label();
             this.txtCuiMenor = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.pbFotografiaMenor = new System.Windows.Forms.PictureBox();
+            this.gbFotoMenor = new System.Windows.Forms.GroupBox();
             this.pnlNotificaciones.SuspendLayout();
             this.pnlPrincipal.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFotografiaMenor)).BeginInit();
+            this.gbHuellasDactilares.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDedo10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDedo9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDedo8)).BeginInit();
@@ -100,8 +101,8 @@ namespace SistemaMenoresEdad
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDedo3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDedo2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDedo1)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbFotografiaMenor)).BeginInit();
+            this.gbDatosBiograficos.SuspendLayout();
+            this.gbFotoMenor.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlNotificaciones
@@ -204,45 +205,55 @@ namespace SistemaMenoresEdad
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlPrincipal.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlPrincipal.Controls.Add(this.pbFotografiaMenor);
-            this.pnlPrincipal.Controls.Add(this.groupBox2);
-            this.pnlPrincipal.Controls.Add(this.groupBox1);
+            this.pnlPrincipal.Controls.Add(this.gbFotoMenor);
+            this.pnlPrincipal.Controls.Add(this.gbHuellasDactilares);
+            this.pnlPrincipal.Controls.Add(this.gbDatosBiograficos);
             this.pnlPrincipal.Location = new System.Drawing.Point(0, 102);
             this.pnlPrincipal.Name = "pnlPrincipal";
             this.pnlPrincipal.Size = new System.Drawing.Size(1789, 685);
             this.pnlPrincipal.TabIndex = 1;
             // 
-            // groupBox2
+            // pbFotografiaMenor
             // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.label20);
-            this.groupBox2.Controls.Add(this.label21);
-            this.groupBox2.Controls.Add(this.label22);
-            this.groupBox2.Controls.Add(this.label23);
-            this.groupBox2.Controls.Add(this.label24);
-            this.groupBox2.Controls.Add(this.label19);
-            this.groupBox2.Controls.Add(this.label18);
-            this.groupBox2.Controls.Add(this.label17);
-            this.groupBox2.Controls.Add(this.label16);
-            this.groupBox2.Controls.Add(this.label25);
-            this.groupBox2.Controls.Add(this.pictureBoxDedo10);
-            this.groupBox2.Controls.Add(this.pictureBoxDedo9);
-            this.groupBox2.Controls.Add(this.pictureBoxDedo8);
-            this.groupBox2.Controls.Add(this.pictureBoxDedo7);
-            this.groupBox2.Controls.Add(this.pictureBoxDedo6);
-            this.groupBox2.Controls.Add(this.pictureBoxDedo5);
-            this.groupBox2.Controls.Add(this.pictureBoxDedo4);
-            this.groupBox2.Controls.Add(this.pictureBoxDedo3);
-            this.groupBox2.Controls.Add(this.pictureBoxDedo2);
-            this.groupBox2.Controls.Add(this.pictureBoxDedo1);
-            this.groupBox2.Controls.Add(this.label26);
-            this.groupBox2.Controls.Add(this.label27);
-            this.groupBox2.Location = new System.Drawing.Point(672, 29);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1094, 464);
-            this.groupBox2.TabIndex = 63;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "HUELLAS DACTILARES";
+            this.pbFotografiaMenor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbFotografiaMenor.Location = new System.Drawing.Point(71, 19);
+            this.pbFotografiaMenor.Name = "pbFotografiaMenor";
+            this.pbFotografiaMenor.Size = new System.Drawing.Size(193, 186);
+            this.pbFotografiaMenor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbFotografiaMenor.TabIndex = 64;
+            this.pbFotografiaMenor.TabStop = false;
+            // 
+            // gbHuellasDactilares
+            // 
+            this.gbHuellasDactilares.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbHuellasDactilares.Controls.Add(this.label20);
+            this.gbHuellasDactilares.Controls.Add(this.label21);
+            this.gbHuellasDactilares.Controls.Add(this.label22);
+            this.gbHuellasDactilares.Controls.Add(this.label23);
+            this.gbHuellasDactilares.Controls.Add(this.label24);
+            this.gbHuellasDactilares.Controls.Add(this.label19);
+            this.gbHuellasDactilares.Controls.Add(this.label18);
+            this.gbHuellasDactilares.Controls.Add(this.label17);
+            this.gbHuellasDactilares.Controls.Add(this.label16);
+            this.gbHuellasDactilares.Controls.Add(this.label25);
+            this.gbHuellasDactilares.Controls.Add(this.pictureBoxDedo10);
+            this.gbHuellasDactilares.Controls.Add(this.pictureBoxDedo9);
+            this.gbHuellasDactilares.Controls.Add(this.pictureBoxDedo8);
+            this.gbHuellasDactilares.Controls.Add(this.pictureBoxDedo7);
+            this.gbHuellasDactilares.Controls.Add(this.pictureBoxDedo6);
+            this.gbHuellasDactilares.Controls.Add(this.pictureBoxDedo5);
+            this.gbHuellasDactilares.Controls.Add(this.pictureBoxDedo4);
+            this.gbHuellasDactilares.Controls.Add(this.pictureBoxDedo3);
+            this.gbHuellasDactilares.Controls.Add(this.pictureBoxDedo2);
+            this.gbHuellasDactilares.Controls.Add(this.pictureBoxDedo1);
+            this.gbHuellasDactilares.Controls.Add(this.label26);
+            this.gbHuellasDactilares.Controls.Add(this.label27);
+            this.gbHuellasDactilares.Location = new System.Drawing.Point(672, 29);
+            this.gbHuellasDactilares.Name = "gbHuellasDactilares";
+            this.gbHuellasDactilares.Size = new System.Drawing.Size(1094, 464);
+            this.gbHuellasDactilares.TabIndex = 63;
+            this.gbHuellasDactilares.TabStop = false;
+            this.gbHuellasDactilares.Text = "HUELLAS DACTILARES";
             // 
             // label20
             // 
@@ -454,46 +465,38 @@ namespace SistemaMenoresEdad
             this.label27.TabIndex = 53;
             this.label27.Text = "Mano Derecha";
             // 
-            // groupBox1
+            // gbDatosBiograficos
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.gbDatosBiograficos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.txtFoto);
-            this.groupBox1.Controls.Add(this.txtMunicipioNac);
-            this.groupBox1.Controls.Add(this.txtDeptoNac);
-            this.groupBox1.Controls.Add(this.txtPaisNac);
-            this.groupBox1.Controls.Add(this.txtGenero);
-            this.groupBox1.Controls.Add(this.txtFechaNac);
-            this.groupBox1.Controls.Add(this.txtSegundoApellido);
-            this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Controls.Add(this.txtPrimerApellido);
-            this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.txtTercerMasNombres);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.txtSegundoNombre);
-            this.groupBox1.Controls.Add(this.label13);
-            this.groupBox1.Controls.Add(this.txtPrimerNombre);
-            this.groupBox1.Controls.Add(this.label14);
-            this.groupBox1.Controls.Add(this.txtCuiMenor);
-            this.groupBox1.Controls.Add(this.label15);
-            this.groupBox1.Location = new System.Drawing.Point(39, 29);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(589, 395);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "DATOS BIOGRÁFICOS";
-            // 
-            // txtFoto
-            // 
-            this.txtFoto.Location = new System.Drawing.Point(30, 369);
-            this.txtFoto.Name = "txtFoto";
-            this.txtFoto.Size = new System.Drawing.Size(100, 20);
-            this.txtFoto.TabIndex = 64;
+            this.gbDatosBiograficos.Controls.Add(this.txtMunicipioNac);
+            this.gbDatosBiograficos.Controls.Add(this.txtDeptoNac);
+            this.gbDatosBiograficos.Controls.Add(this.txtPaisNac);
+            this.gbDatosBiograficos.Controls.Add(this.txtGenero);
+            this.gbDatosBiograficos.Controls.Add(this.txtFechaNac);
+            this.gbDatosBiograficos.Controls.Add(this.txtSegundoApellido);
+            this.gbDatosBiograficos.Controls.Add(this.label12);
+            this.gbDatosBiograficos.Controls.Add(this.txtPrimerApellido);
+            this.gbDatosBiograficos.Controls.Add(this.label11);
+            this.gbDatosBiograficos.Controls.Add(this.label10);
+            this.gbDatosBiograficos.Controls.Add(this.label9);
+            this.gbDatosBiograficos.Controls.Add(this.label8);
+            this.gbDatosBiograficos.Controls.Add(this.label7);
+            this.gbDatosBiograficos.Controls.Add(this.label5);
+            this.gbDatosBiograficos.Controls.Add(this.txtTercerMasNombres);
+            this.gbDatosBiograficos.Controls.Add(this.label6);
+            this.gbDatosBiograficos.Controls.Add(this.txtSegundoNombre);
+            this.gbDatosBiograficos.Controls.Add(this.label13);
+            this.gbDatosBiograficos.Controls.Add(this.txtPrimerNombre);
+            this.gbDatosBiograficos.Controls.Add(this.label14);
+            this.gbDatosBiograficos.Controls.Add(this.txtCuiMenor);
+            this.gbDatosBiograficos.Controls.Add(this.label15);
+            this.gbDatosBiograficos.Location = new System.Drawing.Point(39, 260);
+            this.gbDatosBiograficos.Name = "gbDatosBiograficos";
+            this.gbDatosBiograficos.Size = new System.Drawing.Size(589, 375);
+            this.gbDatosBiograficos.TabIndex = 0;
+            this.gbDatosBiograficos.TabStop = false;
+            this.gbDatosBiograficos.Text = "DATOS BIOGRÁFICOS";
             // 
             // txtMunicipioNac
             // 
@@ -674,14 +677,15 @@ namespace SistemaMenoresEdad
             this.label15.TabIndex = 36;
             this.label15.Text = "CUI:";
             // 
-            // pbFotografiaMenor
+            // gbFotoMenor
             // 
-            this.pbFotografiaMenor.Location = new System.Drawing.Point(142, 443);
-            this.pbFotografiaMenor.Name = "pbFotografiaMenor";
-            this.pbFotografiaMenor.Size = new System.Drawing.Size(193, 170);
-            this.pbFotografiaMenor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbFotografiaMenor.TabIndex = 64;
-            this.pbFotografiaMenor.TabStop = false;
+            this.gbFotoMenor.Controls.Add(this.pbFotografiaMenor);
+            this.gbFotoMenor.Location = new System.Drawing.Point(39, 29);
+            this.gbFotoMenor.Name = "gbFotoMenor";
+            this.gbFotoMenor.Size = new System.Drawing.Size(331, 219);
+            this.gbFotoMenor.TabIndex = 65;
+            this.gbFotoMenor.TabStop = false;
+            this.gbFotoMenor.Text = "FOTOGRAFÍA MENOR";
             // 
             // Verificador
             // 
@@ -698,8 +702,9 @@ namespace SistemaMenoresEdad
             this.pnlNotificaciones.ResumeLayout(false);
             this.pnlNotificaciones.PerformLayout();
             this.pnlPrincipal.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFotografiaMenor)).EndInit();
+            this.gbHuellasDactilares.ResumeLayout(false);
+            this.gbHuellasDactilares.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDedo10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDedo9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDedo8)).EndInit();
@@ -710,9 +715,9 @@ namespace SistemaMenoresEdad
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDedo3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDedo2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDedo1)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbFotografiaMenor)).EndInit();
+            this.gbDatosBiograficos.ResumeLayout(false);
+            this.gbDatosBiograficos.PerformLayout();
+            this.gbFotoMenor.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -729,8 +734,8 @@ namespace SistemaMenoresEdad
         private System.Windows.Forms.TextBox txtFAR;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtStatusLector;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox gbDatosBiograficos;
+        private System.Windows.Forms.GroupBox gbHuellasDactilares;
         private System.Windows.Forms.TextBox txtMunicipioNac;
         private System.Windows.Forms.TextBox txtDeptoNac;
         private System.Windows.Forms.TextBox txtPaisNac;
@@ -775,7 +780,7 @@ namespace SistemaMenoresEdad
         private System.Windows.Forms.PictureBox pictureBoxDedo1;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.TextBox txtFoto;
         private System.Windows.Forms.PictureBox pbFotografiaMenor;
+        private System.Windows.Forms.GroupBox gbFotoMenor;
     }
 }

@@ -91,16 +91,18 @@ namespace SistemaMenoresEdad
 
         private void datosIncialesaMostrar()
         {
-            groupBox1.Visible = false;
-            groupBox2.Visible = false;
+            gbDatosBiograficos.Visible = false;
+            gbHuellasDactilares.Visible = false;
+            gbFotoMenor.Visible = false;
         }
 
         private void mostrarDatos()
         {
             this.Invoke(new Function(delegate ()
             {
-                groupBox1.Visible = true;
-                groupBox2.Visible = true;
+                gbDatosBiograficos.Visible = true;
+                gbHuellasDactilares.Visible = true;
+                gbFotoMenor.Visible = true;
             }));
         }
 
@@ -119,7 +121,7 @@ namespace SistemaMenoresEdad
                 txtPaisNac.Enabled = false;
                 txtDeptoNac.Enabled = false;
                 txtMunicipioNac.Enabled = false;
-                txtFoto.Enabled = false;
+                pbFotografiaMenor.Enabled = false;
             }));
         }
 
@@ -243,16 +245,16 @@ namespace SistemaMenoresEdad
                     txtDeptoNac.Text = verificacion.DepartamentoNacimiento.ToString();
                     txtMunicipioNac.Text = verificacion.MunicipioNacimiento.ToString();
 
-                    /*-------------------------*/
+                    /*----------------------------*/
                     /*FOTOGRAFIA SE MANDA A TRAER*/
-                    /*------------------------*/
+                    /*---------------------------*/
 
                     //conversion de varbinary a bitmap para que se setee al picturebox
                     TypeConverter tc = TypeDescriptor.GetConverter(typeof(Bitmap));
                     Bitmap MyBitmap;
 
-                    //------------> MyBitmap = (Bitmap)tc.ConvertFrom(verificacion.Foto);
-                    //------------> pbFotografiaMenor.Image = new Bitmap(MyBitmap, pbFotografiaMenor.Size);
+                    MyBitmap = (Bitmap)tc.ConvertFrom(verificacion.Foto);
+                    pbFotografiaMenor.Image = new Bitmap(MyBitmap, pbFotografiaMenor.Size);
                     
                 }));
             }
@@ -287,7 +289,9 @@ namespace SistemaMenoresEdad
                 txtPaisNac.Clear();
                 txtDeptoNac.Clear();
                 txtMunicipioNac.Clear();
-            
+
+                pbFotografiaMenor.Image = null;
+
                 limpiarPictureHuellas();
             }));
         }
@@ -297,18 +301,6 @@ namespace SistemaMenoresEdad
         {
             IdentificacionMenorEdad identificacion = new IdentificacionMenorEdad();
             List<bitmapHuellaMenor> listaDatosBiometricosBitmap = identificacion.bitmapHuellasMenorPorCUI(CUI); //se trae la lista de los bitmap
-
-            //foreach (var bitmapDevuelto in listaDatosBiometricosBitmap)
-            //{
-            //    /*conviertiendo los bytes a bitmap*/
-            //    TypeConverter tc = TypeDescriptor.GetConverter(typeof(Bitmap));
-            //    Bitmap MyBitmap = (Bitmap)tc.ConvertFrom(bitmapDevuelto.BitmapDedoHuella);
-
-            //    /*asignar el bitmap al picturebox*/
-            //    pictureBoxDedo1.Image = new Bitmap(MyBitmap, pictureBoxDedo1.Size);
-            //    MessageBox.Show("Huella traida");
-            //    break;
-            //}
 
             /*convertidor para pasar de byte a bitmap*/
             TypeConverter tc = TypeDescriptor.GetConverter(typeof(Bitmap));
