@@ -23,7 +23,7 @@ namespace SistemaMenoresEdad.CapaModelo
         private int idPaisNacimiento;
         private int idDepartamentoNacimiento;
         private int idMunicipioNacimiento;
-        private string foto;
+        private byte[] foto;
         private char estado;
 
         public long CuiMenor { get => cuiMenor; set => cuiMenor = value; }
@@ -37,8 +37,9 @@ namespace SistemaMenoresEdad.CapaModelo
         public int IdPaisNacimiento { get => idPaisNacimiento; set => idPaisNacimiento = value; }
         public int IdDepartamentoNacimiento { get => idDepartamentoNacimiento; set => idDepartamentoNacimiento = value; }
         public int IdMunicipioNacimiento { get => idMunicipioNacimiento; set => idMunicipioNacimiento = value; }
-        public string Foto { get => foto; set => foto = value; }
+        
         public char Estado { get => estado; set => estado = value; }
+        public byte[] Foto { get => foto; set => foto = value; }
     }
 
     /*public class DatosBiometricosMenor
@@ -219,6 +220,53 @@ namespace SistemaMenoresEdad.CapaModelo
             }
 
             return datosBiograficos; //retorna la lista con los datos del menor de edad
+        }
+
+
+        public List<DatosMenorEdad> listarMenorCUI(long CUIMenor)
+        {
+            List<DatosMenorEdad> datosConCUI = new List<DatosMenorEdad>();
+            string queryListarDatos = "SELECT * FROM MenorEdad where CUIMenor =@IDMenor";
+
+            using (SqlConnection connection = new SqlConnection(Conexion.conexionString))
+            {
+                SqlCommand command = new SqlCommand(queryListarDatos, connection);
+                command.Parameters.Add("@IDMenor", CUIMenor);
+
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        DatosMenorEdad datos = new DatosMenorEdad();
+                        datos.CuiMenor = (long)reader["CUIMenor"];
+                        datos.PrimerNombre = (string)reader["primerNombre"];
+                        datos.SegundoNombre = (string)reader["segundoNombre"];
+                        datos.TercerMasNombres = (string)reader["tercerMasNombres"];
+                        datos.PrimerApellido = (string)reader["primerApellido"];
+                        datos.SegundoApellido = (string)reader["segundoApellido"];
+                        datos.FechaNacimiento = (DateTime)reader["fechaNacimiento"];
+                        datos.IdGenero = (int)reader["idGenero"];
+                        datos.IdPaisNacimiento = (int)reader["idPaisNacimiento"];
+                        datos.IdDepartamentoNacimiento = (int)reader["idDepartamentoNac"];
+                        datos.IdMunicipioNacimiento = (int)reader["idMunicipioNac"];
+                        //datos.Foto = (string)reader["fotografia"];
+                        datos.Estado = char.Parse((string)reader["estatus"]);
+
+                        datosConCUI.Add(datos);
+                    }
+                    reader.Close();
+                    connection.Close();
+                }
+                catch (SqlException exception)
+                {
+                    MessageBox.Show("Error:" + exception.Message);
+                }
+            }
+
+            return datosConCUI; //retorna la lista con los datos del menor de edad
         }
 
 
@@ -445,6 +493,53 @@ namespace SistemaMenoresEdad.CapaModelo
                     //respuesta = Convert.ToInt32(command.Parameters["@respuesta"].Value);
                     conexion.Close();
                     MessageBox.Show("Huella guardada en la Base de Datos");
+
+                }
+                catch (SqlException exc)
+                {
+                    MessageBox.Show("Error: \n" + exc.Message);
+
+                }
+            }
+        }
+
+        /*------------------------*/
+        /*MODIFICAR MENOR DE EDAD*/
+        /*-----------------------*/
+        public void modificarMenorEdad(string primerNombre, string segundoNombre, string tercerYmasNombres, string primerApellido,
+            string segundoApellido, string fechaNacimiento, string idGenero, string idPaisNacimiento, string idDepartamentoNacimiento,
+            string idMunicipioNacimiento, byte[] fotografia, string CUIMenor)
+        {
+
+            using (SqlConnection conexion = new SqlConnection(Conexion.conexionString))
+            {
+
+                string queryModificar = "update MenorEdad set primerNombre = @primerNombre, segundoNombre = @segundoNombre, " +
+                    "tercerMasNombres=@tercerNombre, primerApellido = @primerApellido, segundoApellido = @segundoApellido, " +
+                    "fechaNacimiento = @fechaNacimiento, idGenero = @idGenero, idPaisNacimiento = @idPais, " +
+                    "idDepartamentoNac = @idDepto, idMunicipioNac = @idMunicipio, fotografia = @fotografia " +
+                    "where CUIMenor = @CUIMenor ";
+
+                SqlCommand command = new SqlCommand(queryModificar, conexion);
+                command.Parameters.AddWithValue("@primerNombre", primerNombre);
+                command.Parameters.AddWithValue("@segundoNombre", segundoNombre); //Tag contiene el codigo de la huella
+                command.Parameters.AddWithValue("@tercerNombre", tercerYmasNombres);
+                command.Parameters.AddWithValue("@primerApellido", primerApellido);
+                command.Parameters.AddWithValue("@segundoApellido", segundoApellido);
+                command.Parameters.AddWithValue("@fechaNacimiento", fechaNacimiento);
+                command.Parameters.AddWithValue("@idGenero", idGenero);
+                command.Parameters.AddWithValue("@idPais", idPaisNacimiento);
+                command.Parameters.AddWithValue("@idDepto", idDepartamentoNacimiento);
+                command.Parameters.AddWithValue("@idMunicipio", idMunicipioNacimiento);
+                command.Parameters.AddWithValue("@fotografia", fotografia);
+                command.Parameters.AddWithValue("@CUIMenor", CUIMenor);
+
+                try
+                {
+                    conexion.Open();
+                    command.ExecuteNonQuery();
+                    conexion.Close();
+                    MessageBox.Show("El registro del Menor de edad \nha sido modificado", "Modificacion Registro Menor de Edad");
 
                 }
                 catch (SqlException exc)

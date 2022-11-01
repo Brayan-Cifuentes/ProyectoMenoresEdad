@@ -17,7 +17,8 @@ namespace SistemaMenoresEdad
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new RegistroMenoresEdad());
-            Application.Run(new Identificador());
+            Application.Run(new Verificador());
+            //////Application.Run(new Identificador());
         }
     }
 }

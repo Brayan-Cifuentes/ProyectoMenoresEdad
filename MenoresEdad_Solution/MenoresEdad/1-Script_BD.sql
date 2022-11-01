@@ -113,12 +113,12 @@ CREATE TABLE DatosPadre(
 
 CREATE TABLE AsignarPadreMenor(
 	NoDoctoIdentificacionPadre int NOT NULL,
-	cuiMenor int NOT NULL,
+	CUIMenor bigint NOT NULL,
 
 	PRIMARY KEY(NoDoctoIdentificacionPadre, cuiMenor),
 
 	FOREIGN KEY (NoDoctoIdentificacionPadre) REFERENCES DatosPadre (NoDoctoIdentificacionPadre),
-	FOREIGN KEY (cuiMenor) REFERENCES MenorEdad (cuiMenor)
+	FOREIGN KEY (CUIMenor) REFERENCES MenorEdad (CUIMenor)
 );
 
 
@@ -159,10 +159,10 @@ CREATE TABLE PermisoUsuario(
 CREATE TABLE Bitacora(
 	idBitacora INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
 	cuiUsuario INT NOT NULL,
-	cuiMenor INT NOT NULL,
+	CUIMenor BIGINT NOT NULL,
 	fechaHoraAccion DATETIME NOT NULL,
 	descripcionAccion VARCHAR(50) NOT NULL,
 
 	FOREIGN KEY(cuiUsuario) REFERENCES Usuario (cuiUsuario),
-	FOREIGN KEY(cuiMenor) REFERENCES MenorEdad (cuiMenor)
+	FOREIGN KEY(CUIMenor) REFERENCES MenorEdad (CUIMenor)
 );

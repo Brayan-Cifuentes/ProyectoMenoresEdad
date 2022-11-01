@@ -30,6 +30,17 @@ namespace SistemaMenoresEdad
         public RegistroMenoresEdad()
         {
             InitializeComponent();
+
+            /*Escondiendo botones*/
+            txtFechaNac.Visible = false;
+            txtGenero.Visible = false;
+            txtPaisNac.Visible = false;
+            txtMunicipioNac.Visible = false;
+            txtDeptoNac.Visible = false;
+            btnPruebaTraerDatos.Visible = false;
+
+            //this.MaximumSize = SystemInformation.PrimaryMonitorMaximizedWindowSize;
+            //this.WindowState = FormWindowState.Maximized;
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -78,7 +89,6 @@ namespace SistemaMenoresEdad
 
             //llamada del metodo refrescar
             RefreshTabla(dgvDatosBiograficos);
-
         }
 
         
@@ -481,6 +491,85 @@ namespace SistemaMenoresEdad
             {
                 MessageBox.Show("No se selecciono ninguna imagen", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+        }
+
+        private void btnBuscarCUI_Click(object sender, EventArgs e)
+        {
+
+            if(txtBuscar.Text == null)
+            {
+                RegistroMenorEdad registro = new RegistroMenorEdad();
+                dgvDatosBiograficos.DataSource = registro.listarDatosBiograficos(); //se asigna la lista devuelta a la datagrid view
+                
+            }
+            else if (txtBuscar.Text !=null)
+            {
+                long CUIMenorEdad = long.Parse(txtBuscar.Text.Trim());
+                RegistroMenorEdad registro = new RegistroMenorEdad();
+                dgvDatosBiograficos.DataSource = registro.listarMenorCUI(CUIMenorEdad); //se asigna la lista devuelta a la datagrid view
+            }
+
+        }
+
+        //Boton modificar
+        private void button30_Click(object sender, EventArgs e)
+        {
+            RegistroMenorEdad modificarRegistro = new RegistroMenorEdad();
+            modificarRegistro.modificarMenorEdad(txtPrimerNombre.Text, txtSegundoNombre.Text, txtTercerMasNombres.Text, 
+                txtPrimerApellido.Text, txtSegundoApellido.Text, txtFechaNac.Text, txtGenero.Text, txtPaisNac.Text, 
+                txtDeptoNac.Text, txtMunicipioNac.Text, fotografiaMenor, txtCuiMenor.Text);
+
+            //el txtdeCui lo seteo antes en el evento cellclick
+            RefreshTabla(dgvDatosBiograficos);
+        }
+
+        private void dgvDatosBiograficos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //Al seleccionar la fila devuelve el CUIdelMenor
+            long? CUIMenor = getCUIMenorDGV(dgvDatosBiograficos);
+            txtCuiMenor.Text = CUIMenor.ToString();
+        }
+
+        private long? getCUIMenorDGV(DataGridView dataGridView)
+        {
+            try
+            {
+                if (dataGridView.Rows.Count == 0)
+                {
+                    return null;
+                }
+                else
+                {
+                    return long.Parse(dataGridView.Rows[dataGridView.CurrentRow.Index].Cells[0].Value.ToString());
+                }
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        private void btnNuevoRegistro_Click(object sender, EventArgs e)
+        {
+            txtCuiMenor.Text = "";
+            txtPrimerNombre.Text = "";
+            txtTercerMasNombres.Text = "";
+            
+            txtPrimerApellido.Text = "";
+            txtSegundoApellido.Text = "";
+            txtFechaNac.Text = "";
+
+            pbFotoMenor.Image = null;
+            pictureBoxDedo1.Image = null;
+            pictureBoxDedo2.Image = null;
+            pictureBoxDedo3.Image = null;
+            pictureBoxDedo4.Image = null;
+            pictureBoxDedo5.Image = null;
+            pictureBoxDedo6.Image = null;
+            pictureBoxDedo7.Image = null;
+            pictureBoxDedo8.Image = null;
+            pictureBoxDedo9.Image = null;
+            pictureBoxDedo10.Image = null;
         }
     }
 }

@@ -1,0 +1,12 @@
+AVANCES 29-09-2022 AL 06-10-2022
+------------------------------------
+- Se realizo la funcion obtener ID
+- Se realizo la busqueda por medio del boton buscar, esto por medio de CUI 
+- Se realizo la modificacion del registro
+
+
+pendiente de realizar 
+- Arreglar el boton buscar cuendo no hay valores
+- realizar la modificacion de huellas
+- Realizar el cambio de forma automática de los controles al momento de 
+seleccionar el registro de la tabla

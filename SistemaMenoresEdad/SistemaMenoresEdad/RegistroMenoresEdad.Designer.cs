@@ -30,9 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistroMenoresEdad));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button31 = new System.Windows.Forms.Button();
-            this.button30 = new System.Windows.Forms.Button();
-            this.button29 = new System.Windows.Forms.Button();
+            this.btnSeleccionarFotoMenor = new System.Windows.Forms.Button();
+            this.btnDardeBaja = new System.Windows.Forms.Button();
+            this.btnModificarRegistro = new System.Windows.Forms.Button();
+            this.btnNuevoRegistro = new System.Windows.Forms.Button();
             this.btnGuardarDatosBiograficos = new System.Windows.Forms.Button();
             this.pbFotoMenor = new System.Windows.Forms.PictureBox();
             this.txtMunicipioNac = new System.Windows.Forms.TextBox();
@@ -127,7 +128,6 @@
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnPruebaTraerDatos = new System.Windows.Forms.Button();
-            this.btnSeleccionarFotoMenor = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbFotoMenor)).BeginInit();
@@ -152,9 +152,9 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.btnSeleccionarFotoMenor);
-            this.groupBox1.Controls.Add(this.button31);
-            this.groupBox1.Controls.Add(this.button30);
-            this.groupBox1.Controls.Add(this.button29);
+            this.groupBox1.Controls.Add(this.btnDardeBaja);
+            this.groupBox1.Controls.Add(this.btnModificarRegistro);
+            this.groupBox1.Controls.Add(this.btnNuevoRegistro);
             this.groupBox1.Controls.Add(this.btnGuardarDatosBiograficos);
             this.groupBox1.Controls.Add(this.pbFotoMenor);
             this.groupBox1.Controls.Add(this.txtMunicipioNac);
@@ -192,32 +192,44 @@
             this.groupBox1.Text = "DATOS DEL MENOR DE EDAD";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // button31
+            // btnSeleccionarFotoMenor
             // 
-            this.button31.Location = new System.Drawing.Point(26, 325);
-            this.button31.Name = "button31";
-            this.button31.Size = new System.Drawing.Size(173, 23);
-            this.button31.TabIndex = 39;
-            this.button31.Text = "Dar de Baja Registro";
-            this.button31.UseVisualStyleBackColor = true;
+            this.btnSeleccionarFotoMenor.Location = new System.Drawing.Point(26, 195);
+            this.btnSeleccionarFotoMenor.Name = "btnSeleccionarFotoMenor";
+            this.btnSeleccionarFotoMenor.Size = new System.Drawing.Size(173, 23);
+            this.btnSeleccionarFotoMenor.TabIndex = 40;
+            this.btnSeleccionarFotoMenor.Text = "Seleccionar Fotografía";
+            this.btnSeleccionarFotoMenor.UseVisualStyleBackColor = true;
+            this.btnSeleccionarFotoMenor.Click += new System.EventHandler(this.btnSeleccionarFotoMenor_Click);
             // 
-            // button30
+            // btnDardeBaja
             // 
-            this.button30.Location = new System.Drawing.Point(26, 296);
-            this.button30.Name = "button30";
-            this.button30.Size = new System.Drawing.Size(173, 23);
-            this.button30.TabIndex = 38;
-            this.button30.Text = "Modificar Registro";
-            this.button30.UseVisualStyleBackColor = true;
+            this.btnDardeBaja.Location = new System.Drawing.Point(26, 325);
+            this.btnDardeBaja.Name = "btnDardeBaja";
+            this.btnDardeBaja.Size = new System.Drawing.Size(173, 23);
+            this.btnDardeBaja.TabIndex = 39;
+            this.btnDardeBaja.Text = "Dar de Baja Registro";
+            this.btnDardeBaja.UseVisualStyleBackColor = true;
             // 
-            // button29
+            // btnModificarRegistro
             // 
-            this.button29.Location = new System.Drawing.Point(26, 267);
-            this.button29.Name = "button29";
-            this.button29.Size = new System.Drawing.Size(173, 23);
-            this.button29.TabIndex = 37;
-            this.button29.Text = "Nuevo Registro";
-            this.button29.UseVisualStyleBackColor = true;
+            this.btnModificarRegistro.Location = new System.Drawing.Point(26, 296);
+            this.btnModificarRegistro.Name = "btnModificarRegistro";
+            this.btnModificarRegistro.Size = new System.Drawing.Size(173, 23);
+            this.btnModificarRegistro.TabIndex = 38;
+            this.btnModificarRegistro.Text = "Modificar Registro";
+            this.btnModificarRegistro.UseVisualStyleBackColor = true;
+            this.btnModificarRegistro.Click += new System.EventHandler(this.button30_Click);
+            // 
+            // btnNuevoRegistro
+            // 
+            this.btnNuevoRegistro.Location = new System.Drawing.Point(26, 267);
+            this.btnNuevoRegistro.Name = "btnNuevoRegistro";
+            this.btnNuevoRegistro.Size = new System.Drawing.Size(173, 23);
+            this.btnNuevoRegistro.TabIndex = 37;
+            this.btnNuevoRegistro.Text = "Nuevo Registro";
+            this.btnNuevoRegistro.UseVisualStyleBackColor = true;
+            this.btnNuevoRegistro.Click += new System.EventHandler(this.btnNuevoRegistro_Click);
             // 
             // btnGuardarDatosBiograficos
             // 
@@ -232,9 +244,9 @@
             // pbFotoMenor
             // 
             this.pbFotoMenor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbFotoMenor.Location = new System.Drawing.Point(26, 26);
+            this.pbFotoMenor.Location = new System.Drawing.Point(34, 26);
             this.pbFotoMenor.Name = "pbFotoMenor";
-            this.pbFotoMenor.Size = new System.Drawing.Size(173, 170);
+            this.pbFotoMenor.Size = new System.Drawing.Size(150, 150);
             this.pbFotoMenor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbFotoMenor.TabIndex = 34;
             this.pbFotoMenor.TabStop = false;
@@ -319,7 +331,7 @@
             this.dtpFechaNac.CustomFormat = "";
             this.dtpFechaNac.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpFechaNac.Location = new System.Drawing.Point(348, 183);
-            this.dtpFechaNac.MinDate = new System.DateTime(2005, 1, 1, 0, 0, 0, 0);
+            this.dtpFechaNac.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
             this.dtpFechaNac.Name = "dtpFechaNac";
             this.dtpFechaNac.Size = new System.Drawing.Size(124, 20);
             this.dtpFechaNac.TabIndex = 24;
@@ -1084,6 +1096,7 @@
             this.dgvDatosBiograficos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDatosBiograficos.Size = new System.Drawing.Size(751, 265);
             this.dgvDatosBiograficos.TabIndex = 3;
+            this.dgvDatosBiograficos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatosBiograficos_CellClick);
             // 
             // btnBuscarCUI
             // 
@@ -1093,6 +1106,7 @@
             this.btnBuscarCUI.TabIndex = 2;
             this.btnBuscarCUI.Text = "Buscar";
             this.btnBuscarCUI.UseVisualStyleBackColor = true;
+            this.btnBuscarCUI.Click += new System.EventHandler(this.btnBuscarCUI_Click);
             // 
             // txtBuscar
             // 
@@ -1147,16 +1161,6 @@
             this.btnPruebaTraerDatos.Text = "Traer datos";
             this.btnPruebaTraerDatos.UseVisualStyleBackColor = true;
             this.btnPruebaTraerDatos.Click += new System.EventHandler(this.btnPruebaTraerDatos_Click);
-            // 
-            // btnSeleccionarFotoMenor
-            // 
-            this.btnSeleccionarFotoMenor.Location = new System.Drawing.Point(26, 202);
-            this.btnSeleccionarFotoMenor.Name = "btnSeleccionarFotoMenor";
-            this.btnSeleccionarFotoMenor.Size = new System.Drawing.Size(173, 23);
-            this.btnSeleccionarFotoMenor.TabIndex = 40;
-            this.btnSeleccionarFotoMenor.Text = "Seleccionar Fotografía";
-            this.btnSeleccionarFotoMenor.UseVisualStyleBackColor = true;
-            this.btnSeleccionarFotoMenor.Click += new System.EventHandler(this.btnSeleccionarFotoMenor_Click);
             // 
             // openFileDialog1
             // 
@@ -1300,9 +1304,9 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Button button30;
-        private System.Windows.Forms.Button button29;
-        private System.Windows.Forms.Button button31;
+        private System.Windows.Forms.Button btnModificarRegistro;
+        private System.Windows.Forms.Button btnNuevoRegistro;
+        private System.Windows.Forms.Button btnDardeBaja;
         private System.Windows.Forms.Button btnSeleccionarFotoMenor;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }

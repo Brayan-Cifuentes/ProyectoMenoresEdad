@@ -393,7 +393,6 @@ namespace SistemaMenoresEdad
         {
             Init();
             start();
-            
         }
 
         private void Verificador_FormClosed(object sender, FormClosedEventArgs e)
