@@ -8,10 +8,8 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace SistemaMenoresEdad
 {
@@ -23,6 +21,7 @@ namespace SistemaMenoresEdad
         private DPFP.Verification.Verification verificadorHuella;
 
         private Boolean estadoVerificacion = true;
+        
 
         public Verificador()
         {
@@ -173,10 +172,15 @@ namespace SistemaMenoresEdad
                 //traendo la lista hacia aca
                 List<DatosBiometricosMenor> Datosbiometricos = identificacion.DatosBiometricos(); //se crea una lista con las huellas traidas de la BD
 
+                /*objeto para medir el tiempo*/
+                Stopwatch timerIdentificacion = new Stopwatch();
+                timerIdentificacion.Start();
+
                 foreach (var dato in Datosbiometricos)
                 {
                     if (dato.Template != null)
                     {
+
                         stream = new MemoryStream(dato.Template);      //realizando la conversion de la huella de BD (Bite[])
                         plantillaHuellaDB = new DPFP.Template(stream); //a tipo template para realizar la comparacion
 
@@ -186,8 +190,13 @@ namespace SistemaMenoresEdad
 
                         if (result.Verified) //si da verified quiere decir que hizo match la huella ingresada con la de la BD
                         {
+                            timerIdentificacion.Stop();
+                            //MessageBox.Show($"Time elapsed: {0}" + timerIdentificacion.Elapsed.ToString("hh\\:mm\\:ss\\.fff"));
+
                             estadoIdentificacion("HUELLA ENCONTRADA EN LA BD");
-                            
+
+                            /*seteando el tiempo en el txt*/
+                            tiempoidentificacion(timerIdentificacion.Elapsed.ToString("hh\\:mm\\:ss\\.fff"));
                             //desplegar los datos
                             //MessageBox.Show("HUELLA ENCONTRADA \nCUI:" + dato.CuiMenor + " ID_Dedo:" + dato.IdDedoMano);
 
@@ -199,9 +208,13 @@ namespace SistemaMenoresEdad
 
                             datosBiometricosBitmapHuellas(dato.CuiMenor);
 
+                            IdentificacionMenorEdad identidad = new IdentificacionMenorEdad();
+                            //identidad.insertarTiempoHuella(dato.CuiMenor, dato.IdDedoMano.ToString(), timerIdentificacion.Elapsed.ToString("hh\\:mm\\:ss\\.fff"));
+
+                            timerIdentificacion.Reset();
+
                             estadoVerificacion = true; //se encontro
                             limpiarEstado();
-
                             break;
                         }
                         else
@@ -220,9 +233,22 @@ namespace SistemaMenoresEdad
                     MessageBox.Show("La Persona No existe en la Base de Datos", "Huella no encontrada en la Base de Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     limpiarEstado();
                 }
+
             }
         }
 
+
+        //private string conteoTiempo()
+        //{
+        //    TimeSpan ts = new TimeSpan(0, 0, 0, (int)timerIdentificacion.ElapsedMilliseconds);
+
+        //    horas = ts.Hours.ToString().Length < 2 ? "0" + ts.Hours.ToString() : ts.Hours.ToString();
+        //    minutos = ts.Minutes.ToString().Length < 2 ? "0" + ts.Minutes.ToString() : ts.Minutes.ToString();
+        //    segundos = ts.Seconds.ToString().Length < 2 ? "0" + ts.Seconds.ToString() : ts.Seconds.ToString();
+        //    milisegundos = ts.Milliseconds.ToString();
+
+        //    return horas + ":" + minutos + ":" + segundos + ":" + milisegundos;
+        //}
 
         //llamada de campos para mostrar datos provenientes de la lista
         private void datosIdentidadBiograficos(long CUI)
@@ -295,6 +321,7 @@ namespace SistemaMenoresEdad
                 txtPaisNac.Clear();
                 txtDeptoNac.Clear();
                 txtMunicipioNac.Clear();
+                txtTiempoIdentificacion.Clear();
 
                 pbFotografiaMenor.Image = null;
 
@@ -478,6 +505,14 @@ namespace SistemaMenoresEdad
             }));
         }
 
+        protected void tiempoidentificacion(string mensaje)
+        {
+            this.Invoke(new Function(delegate ()
+            {
+                txtTiempoIdentificacion.AppendText(mensaje + "\r\n");
+            }));
+        }
+
         protected void estadoNoIdentificado(string mensaje)
         {
             this.Invoke(new Function(delegate ()
@@ -494,6 +529,17 @@ namespace SistemaMenoresEdad
                 txtEstadoIdentificacion.Clear();
                 txtEstadoIdentificacion.BackColor = Color.FromArgb(253, 254, 254);
             }));
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            ///*cada decima de segundo va a hacer esto*/
+            //TimeSpan ts = new TimeSpan(0, 0, 0, 0,(int)timerIdentificacion.ElapsedMilliseconds);
+
+            //horas = ts.Hours.ToString().Length <2 ? "0" + ts.Hours.ToString() : ts.Hours.ToString();
+            //minutos = ts.Minutes.ToString().Length <2 ? "0"+ ts.Minutes.ToString() : ts.Minutes.ToString();
+            //segundos = ts.Seconds.ToString().Length < 2 ? "0" + ts.Seconds.ToString() : ts.Seconds.ToString();
+            //milisegundos = ts.Milliseconds.ToString();
         }
     }
 }

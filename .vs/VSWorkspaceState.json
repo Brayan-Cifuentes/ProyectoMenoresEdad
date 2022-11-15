@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\MenoresEdad_Solution",
-    "\\MenoresEdad_Solution\\MenoresEdad"
+    "\\MenoresEdad_Solution\\MenoresEdad",
+    "\\MenoresEdad_Solution\\Miscellaneous"
   ],
-  "SelectedNode": "\\MenoresEdad_Solution\\MenoresEdad\\4-SP_InsertarMenorEdad.sql",
+  "SelectedNode": "\\MenoresEdad_Solution\\MenoresEdad\\8-ViewTiemposIdentificacion.sql",
   "PreviewInSolutionExplorer": false
 }

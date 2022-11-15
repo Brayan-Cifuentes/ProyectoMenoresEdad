@@ -207,5 +207,41 @@ namespace SistemaMenoresEdad.CapaModelo
             return bitmapHuella; //retorna la lista con los bitmap de las huellas dactilares
         }
 
+
+        /*---------------------------------------*/
+        /*Insertar tiempos de huellas dactilares */
+        /*----------------------------*/
+        public void insertarTiempoHuella(long CUI, string idDedo, string tiempo)
+        {
+
+            using (SqlConnection conexion = new SqlConnection(Conexion.conexionString))
+            {
+
+                string sql = "INSERT INTO tiempoIdentificacion values (@CUIMenor, @IDDedo, @tiempo)";
+
+                SqlCommand command = new SqlCommand(sql, conexion);
+
+                command.Parameters.AddWithValue("@CUIMenor", CUI);
+                command.Parameters.AddWithValue("@IDDedo", idDedo); //Tag contiene el codigo de la huella
+                command.Parameters.AddWithValue("@tiempo", tiempo);
+                //command.Parameters.Add("@respuesta", SqlDbType.BigInt).Direction = ParameterDirection.Output;
+
+                try
+                {
+                    conexion.Open();
+                    command.ExecuteNonQuery();
+                    //respuesta = Convert.ToInt32(command.Parameters["@respuesta"].Value);
+                    conexion.Close();
+                    //MessageBox.Show("tiempo almacenado");
+
+                }
+                catch (SqlException exc)
+                {
+                    MessageBox.Show("Error: \n" + exc.Message);
+
+                }
+            }
+        }
+
     }
 }

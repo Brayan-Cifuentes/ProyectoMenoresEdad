@@ -29,6 +29,7 @@ namespace SistemaMenoresEdad
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pnlNotificaciones = new System.Windows.Forms.Panel();
             this.txtStatusLector = new System.Windows.Forms.TextBox();
             this.txtFAR = new System.Windows.Forms.TextBox();
@@ -39,6 +40,7 @@ namespace SistemaMenoresEdad
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pnlPrincipal = new System.Windows.Forms.Panel();
+            this.gbFotoMenor = new System.Windows.Forms.GroupBox();
             this.pbFotografiaMenor = new System.Windows.Forms.PictureBox();
             this.gbHuellasDactilares = new System.Windows.Forms.GroupBox();
             this.label20 = new System.Windows.Forms.Label();
@@ -86,9 +88,12 @@ namespace SistemaMenoresEdad
             this.label14 = new System.Windows.Forms.Label();
             this.txtCuiMenor = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.gbFotoMenor = new System.Windows.Forms.GroupBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.txtTiempoIdentificacion = new System.Windows.Forms.TextBox();
+            this.label28 = new System.Windows.Forms.Label();
             this.pnlNotificaciones.SuspendLayout();
             this.pnlPrincipal.SuspendLayout();
+            this.gbFotoMenor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbFotografiaMenor)).BeginInit();
             this.gbHuellasDactilares.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDedo10)).BeginInit();
@@ -102,7 +107,6 @@ namespace SistemaMenoresEdad
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDedo2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDedo1)).BeginInit();
             this.gbDatosBiograficos.SuspendLayout();
-            this.gbFotoMenor.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlNotificaciones
@@ -110,6 +114,8 @@ namespace SistemaMenoresEdad
             this.pnlNotificaciones.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlNotificaciones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.pnlNotificaciones.Controls.Add(this.txtTiempoIdentificacion);
+            this.pnlNotificaciones.Controls.Add(this.label28);
             this.pnlNotificaciones.Controls.Add(this.txtStatusLector);
             this.pnlNotificaciones.Controls.Add(this.txtFAR);
             this.pnlNotificaciones.Controls.Add(this.label4);
@@ -212,6 +218,16 @@ namespace SistemaMenoresEdad
             this.pnlPrincipal.Name = "pnlPrincipal";
             this.pnlPrincipal.Size = new System.Drawing.Size(1789, 685);
             this.pnlPrincipal.TabIndex = 1;
+            // 
+            // gbFotoMenor
+            // 
+            this.gbFotoMenor.Controls.Add(this.pbFotografiaMenor);
+            this.gbFotoMenor.Location = new System.Drawing.Point(39, 29);
+            this.gbFotoMenor.Name = "gbFotoMenor";
+            this.gbFotoMenor.Size = new System.Drawing.Size(331, 219);
+            this.gbFotoMenor.TabIndex = 65;
+            this.gbFotoMenor.TabStop = false;
+            this.gbFotoMenor.Text = "FOTOGRAFÍA DEL MENOR";
             // 
             // pbFotografiaMenor
             // 
@@ -677,15 +693,27 @@ namespace SistemaMenoresEdad
             this.label15.TabIndex = 36;
             this.label15.Text = "CUI:";
             // 
-            // gbFotoMenor
+            // timer1
             // 
-            this.gbFotoMenor.Controls.Add(this.pbFotografiaMenor);
-            this.gbFotoMenor.Location = new System.Drawing.Point(39, 29);
-            this.gbFotoMenor.Name = "gbFotoMenor";
-            this.gbFotoMenor.Size = new System.Drawing.Size(331, 219);
-            this.gbFotoMenor.TabIndex = 65;
-            this.gbFotoMenor.TabStop = false;
-            this.gbFotoMenor.Text = "FOTOGRAFÍA DEL MENOR";
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // txtTiempoIdentificacion
+            // 
+            this.txtTiempoIdentificacion.Enabled = false;
+            this.txtTiempoIdentificacion.Location = new System.Drawing.Point(1366, 16);
+            this.txtTiempoIdentificacion.Name = "txtTiempoIdentificacion";
+            this.txtTiempoIdentificacion.Size = new System.Drawing.Size(141, 20);
+            this.txtTiempoIdentificacion.TabIndex = 12;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.label28.Location = new System.Drawing.Point(1226, 19);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(111, 13);
+            this.label28.TabIndex = 11;
+            this.label28.Text = "Tiempo Identificación:";
             // 
             // Verificador
             // 
@@ -702,6 +730,7 @@ namespace SistemaMenoresEdad
             this.pnlNotificaciones.ResumeLayout(false);
             this.pnlNotificaciones.PerformLayout();
             this.pnlPrincipal.ResumeLayout(false);
+            this.gbFotoMenor.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbFotografiaMenor)).EndInit();
             this.gbHuellasDactilares.ResumeLayout(false);
             this.gbHuellasDactilares.PerformLayout();
@@ -717,7 +746,6 @@ namespace SistemaMenoresEdad
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDedo1)).EndInit();
             this.gbDatosBiograficos.ResumeLayout(false);
             this.gbDatosBiograficos.PerformLayout();
-            this.gbFotoMenor.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -782,5 +810,8 @@ namespace SistemaMenoresEdad
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.PictureBox pbFotografiaMenor;
         private System.Windows.Forms.GroupBox gbFotoMenor;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.TextBox txtTiempoIdentificacion;
+        private System.Windows.Forms.Label label28;
     }
 }

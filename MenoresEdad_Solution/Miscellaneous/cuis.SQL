@@ -1,0 +1,17 @@
+SELECT * FROM MenorEdad WHERE primerNombre LIKE 'BRAY%'
+
+
+SELECT * FROM MenorEdad WHERE CUIMenor IN ( 4198375610101, 9812029970109, 8567040910101, 1084998380101)
+
+
+
+SELECT * FROM HuellaDactilar WHERE CUIMenor = 4198375610101
+SELECT * FROM HuellaDactilar WHERE CUIMenor = 9812029970109
+SELECT * FROM HuellaDactilar WHERE CUIMenor = 8567040910101
+--SELECT * FROM HuellaDactilar WHERE CUIMenor = 1084998380101
+
+delete from MenorEdad where CUIMenor = 1084998380101
+
+delete from HuellaDactilar where 
+
+
